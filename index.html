@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket to Ride - Contador de Pontos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Ticket to Ride - Contador de Pontos</h1>
+    <div class="player-buttons">
+      <button class="blue" onclick="togglePlayer('Azul')">Azul</button>
+      <button class="red" onclick="togglePlayer('Vermelho')">Vermelho</button>
+      <button class="yellow" onclick="togglePlayer('Amarelo')">Amarelo</button>
+      <button class="green" onclick="togglePlayer('Verde')">Verde</button>
+      <button class="black" onclick="togglePlayer('Preto')">Preto</button>
+    </div>
+
+    <div id="scoreSection" class="score-section">
+      <!-- As pontuações dos jogadores aparecerão aqui -->
+    </div>
+
+    <div class="clear-section">
+      <button class="clear-button" onclick="resetScores()">
+        Limpar Pontuações
+      </button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
