@@ -65,20 +65,20 @@ h1 {
 }
 
 .score-card.azul {
-  background-color: #0a97b0;
+  background-color: #007bff;
 }
 
 .score-card.vermelho {
-  background-color: #ff2929;
+  background-color: #dc3545;
 }
 
 .score-card.amarelo {
-  background-color: #fada7a;
+  background-color: #ffc107;
   color: #000;
 }
 
 .score-card.verde {
-  background-color: #8eb486;
+  background-color: #28a745;
 }
 
 .score-card.preto {
@@ -108,7 +108,7 @@ h1 {
 }
 
 .score-text {
-  border: solid white 3px;
+  border: solid #8e44ad 3px;
   background-color: black;
   padding: 10px; /* Espaçamento interno */
   margin: 10px auto; /* Espaçamento externo (vertical) e centralização horizontal */
