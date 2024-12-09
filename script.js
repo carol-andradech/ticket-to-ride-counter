@@ -6,7 +6,7 @@ const pointsMap = {
   "+4": 7,
   "+5": 10,
   "+6": 15,
-  "+7": 18,
+  "+8": 21,
 };
 
 function togglePlayer(color) {
@@ -38,9 +38,14 @@ function renderPlayers() {
     const scoreCard = document.createElement("div");
     scoreCard.className = `score-card ${color.toLowerCase()}`;
 
-    const addedPoints = playerData.addedPoints.length
-      ? `<p>Adicionado: ${playerData.addedPoints.join(", ")}</p>`
-      : "";
+    const addedPointsList = playerData.addedPoints
+      .map(
+        (label, index) =>
+          `<span 
+        class="added-point" 
+        onclick="removePoint('${color}', ${index})">${label}</span>`
+      )
+      .join(", ");
 
     scoreCard.innerHTML = `
       <h3>
@@ -48,13 +53,15 @@ function renderPlayers() {
         ${color}
         <button class="remove-btn" onclick="removePlayer('${color}')">x</button>
       </h3>
-      <p>Pontuação: <span id="score-${color}">${playerData.score}</span></p>
-      ${addedPoints}
+      <p> <span id="score-${color}" class="score-text">${
+      playerData.score
+    }</span></p>
+      <p class="added-points">Adicionado: ${addedPointsList || "Nenhum"}</p>
       <div class="score-buttons">
         ${Object.entries(pointsMap)
           .map(
             ([label, points]) =>
-              `<button onclick="updateScore('${color}', '${label}')">${label}</button>`
+              `<button onclick="updateScore('${color}', '${label}')">🚂 ${label}</button>`
           )
           .join("")}
       </div>
@@ -64,11 +71,28 @@ function renderPlayers() {
   }
 }
 
+function removePoint(color, index) {
+  if (players[color]) {
+    const label = players[color].addedPoints[index];
+    const points = pointsMap[label];
+    players[color].score -= points; // Subtraia os pontos
+    players[color].addedPoints.splice(index, 1); // Remova o ponto da lista
+    renderPlayers(); // Re-renderize os jogadores
+  }
+}
+
 function removePlayer(color) {
+  const scoreCard = document.querySelector(
+    `.score-card.${color.toLowerCase()}`
+  );
+  if (scoreCard) {
+    scoreCard.classList.add("clicked");
+  }
+
   if (players[color]) {
     delete players[color];
   }
-  renderPlayers();
+  setTimeout(renderPlayers, 500); // Aguarda para ver o efeito visual
 }
 
 function resetScores() {

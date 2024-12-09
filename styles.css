@@ -1,11 +1,13 @@
 body {
   font-family: Arial, sans-serif;
-  text-align: center;
+  text-align: center; /* Centraliza os elementos inline */
   margin: 20px;
+  background-color: #282a36;
 }
 
 h1 {
   margin-bottom: 20px;
+  color: white;
 }
 
 .player-buttons {
@@ -15,39 +17,42 @@ h1 {
 .player-buttons button {
   padding: 10px 15px;
   margin: 5px;
-  border: none;
+  border: solid black 1px;
   border-radius: 5px;
   cursor: pointer;
-  color: #fff;
+  color: white;
+  font-weight: bold;
 }
 
-.blue {
+.player-buttons .blue {
   background-color: #007bff;
+  color: #000;
 }
 
-.red {
+.player-buttons .red {
   background-color: #dc3545;
 }
 
-.yellow {
+.player-buttons .yellow {
   background-color: #ffc107;
   color: #000;
 }
 
-.green {
+.player-buttons .green {
   background-color: #28a745;
 }
 
-.black {
+.player-buttons .black {
   background-color: #343a40;
 }
 
 .score-section {
-  margin: 20px 0;
+  margin: 20px;
+  text-align: center; /* Garante a centralização */
 }
 
 .score-card {
-  display: inline-block;
+  display: inline-block; /* Permite centralizar via text-align */
   margin: 10px;
   padding: 15px;
   border: 1px solid #ccc;
@@ -56,45 +61,7 @@ h1 {
   text-align: center;
   position: relative;
   color: #fff;
-}
-
-.score-card .color-box {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-  border-radius: 50%;
-}
-
-.score-buttons button {
-  margin: 5px;
-  padding: 8px 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: #007bff;
-  color: #fff;
-}
-
-.score-buttons button:hover {
-  background-color: #0056b3;
-}
-
-.clear-section {
-  margin-top: 20px;
-}
-
-.clear-button {
-  padding: 10px 20px;
-  background-color: #dc3545;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.clear-button:hover {
-  background-color: #a71d2a;
+  vertical-align: top; /* Garante alinhamento correto ao lado de outros cartões */
 }
 
 .score-card.azul {
@@ -118,24 +85,92 @@ h1 {
   background-color: #343a40;
 }
 
-.score-card.azul p,
-.score-card.vermelho p,
-.score-card.amarelo p,
-.score-card.verde p,
-.score-card.preto p {
-  color: #fff;
-}
-
 .score-card p {
   font-size: 14px;
   margin-top: 10px;
   color: #fff;
 }
 
+.score-card.azul p,
+.score-card.vermelho p,
+.score-card.amarelo p,
+.score-card.verde p,
+.score-card.preto p {
+  color: black;
+}
+
 .score-card .added-points {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.score-text {
+  border: solid #8e44ad 3px;
+  background-color: black;
+  padding: 10px; /* Espaçamento interno */
+  margin: 10px auto; /* Espaçamento externo (vertical) e centralização horizontal */
+  color: white;
+  font-weight: bold;
+  font-size: 24px; /* Tamanho do texto */
+  border-radius: 5px;
+  display: inline-block; /* Evita ocupar largura total */
+  max-width: 100%; /* Garante que não ultrapasse o contêiner */
+  box-sizing: border-box; /* Inclui padding e bordas no tamanho total */
+}
+
+.score-buttons {
+  margin: 10px 0;
+}
+
+.score-buttons button {
+  margin: 8px;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #000;
+  color: white;
+}
+
+.score-buttons button:hover {
+  background-color: #282a36;
+}
+
+.clear-section {
+  margin-top: 20px;
+}
+
+.clear-button {
+  padding: 10px 20px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.clear-button:hover {
+  background-color: #a71d2a;
+}
+
+.added-point {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+  background-color: white;
+  border: solid black 1px;
+  border-radius: 5px;
   font-size: 12px;
-  color: #f8f9fa;
-  margin-top: 5px;
+}
+
+.added-point:hover {
+  color: #dc3545;
+  background-color: #f8f9fa;
 }
 
 .score-card .remove-btn {
@@ -151,4 +186,9 @@ h1 {
 
 .score-card .remove-btn:hover {
   color: #dc3545;
+}
+
+.score-card.clicked {
+  background-color: #fff !important;
+  color: #000;
 }

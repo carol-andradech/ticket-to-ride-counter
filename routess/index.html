@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket to Ride Europe - Top Routes Finder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Ticket to Ride Europe - Top Routes Finder</h1>
+
+    <label for="start">Start City: </label>
+    <select id="start">
+      <!-- Cities dropdown will be dynamically populated -->
+    </select>
+    <br /><br />
+
+    <label for="end">End City: </label>
+    <select id="end">
+      <!-- Cities dropdown will be dynamically populated -->
+    </select>
+    <br /><br />
+
+    <button onclick="findRoutes()">Find Top Routes</button>
+
+    <div id="result"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
